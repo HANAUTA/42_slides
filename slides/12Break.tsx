@@ -10,9 +10,6 @@ export default function Break() {
       <div className="mt-4">
         <Timer seconds={5 * 60} size="lg" />
       </div>
-      <p className="mt-6 text-[34px] font-medium text-foreground/50">
-        そろそろ再開します！
-      </p>
     </div>
   );
 }

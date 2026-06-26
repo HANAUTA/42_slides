@@ -7,7 +7,6 @@ const GOALS: CheckItem[] = [
   { label: "AIを使って開発してみる" },
   { label: "スマホ・ブラウザでアプリを動かす" },
   { label: "自分だけの機能を追加する" },
-  { label: "チームで発表する" },
 ];
 
 export default function Goal() {

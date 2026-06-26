@@ -1,20 +1,20 @@
 import type { SlideConfig } from "./types";
-import Opening from "@/slides/Opening";
-import Goal from "@/slides/Goal";
-import Flow from "@/slides/Flow";
-import Rules from "@/slides/Rules";
-import Setup from "@/slides/Setup";
-import SetupSdk from "@/slides/SetupSdk";
-import SetupClone from "@/slides/SetupClone";
-import SetupEditor from "@/slides/SetupEditor";
-import SetupRun from "@/slides/SetupRun";
-import SetupDone from "@/slides/SetupDone";
-import MustTask from "@/slides/MustTask";
-import Break from "@/slides/Break";
-import FreeTask from "@/slides/FreeTask";
-import Presentation from "@/slides/Presentation";
-import Review from "@/slides/Review";
-import Closing from "@/slides/Closing";
+import Opening from "@/slides/01Opening";
+import Goal from "@/slides/02Goal";
+import Flow from "@/slides/03Flow";
+import Rules from "@/slides/04Rules";
+import Setup from "@/slides/05Setup";
+import SetupSdk from "@/slides/06SetupSdk";
+import SetupClone from "@/slides/07SetupClone";
+import SetupEditor from "@/slides/08SetupEditor";
+import SetupRun from "@/slides/09SetupRun";
+import SetupDone from "@/slides/10SetupDone";
+import MustTask from "@/slides/11MustTask";
+import Break from "@/slides/12Break";
+import FreeTask from "@/slides/13FreeTask";
+import Presentation from "@/slides/14Presentation";
+import Review from "@/slides/15Review";
+import Closing from "@/slides/16Closing";
 
 export const slides: SlideConfig[] = [
   { section: "", component: Opening },

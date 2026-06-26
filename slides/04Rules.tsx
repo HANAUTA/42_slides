@@ -6,8 +6,6 @@ const RULES: CheckItem[] = [
   { label: "疲れたら自由に休憩OK" },
   { label: "困ったらスタッフへ！" },
   { label: "AIもどんどん活用してOK" },
-  { label: "まずは自分で考えてみる" },
-  { label: "楽しむことが一番！" },
 ];
 
 export default function Rules() {

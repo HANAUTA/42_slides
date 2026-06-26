@@ -20,6 +20,12 @@ const LEVELS = [
     desc: "自分たちのSupabaseを作る",
     detail: "DB設計・リレーション・リアルタイム更新まで挑戦",
   },
+  {
+    label: "実機",
+    color: "bg-sky-400",
+    desc: "スマホで動かしてみる",
+    detail: "時間が空いたらGitHub Actionsに環境変数を設定して実機テスト",
+  },
 ];
 
 export default function FreeTask() {

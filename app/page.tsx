@@ -40,11 +40,16 @@ export default function Home() {
       <Stage>
         <Slide key={currentIndex} component={currentSlide.component} />
         <SlideChrome
-          section={currentSlide.section}
+          phase={currentSlide.phase}
           current={currentIndex + 1}
           total={slides.length}
+          theme={currentSlide.theme}
         />
-        <ProgressBar current={currentIndex} total={slides.length} />
+        <ProgressBar
+          current={currentIndex}
+          total={slides.length}
+          theme={currentSlide.theme}
+        />
       </Stage>
     </main>
   );

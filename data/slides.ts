@@ -13,24 +13,30 @@ import MustTask from "@/slides/11MustTask";
 import Break from "@/slides/12Break";
 import FreeTask from "@/slides/13FreeTask";
 import Presentation from "@/slides/14Presentation";
-import Review from "@/slides/15Review";
-import Closing from "@/slides/16Closing";
+import Analytics1 from "@/slides/15Analytics1";
+import Analytics2 from "@/slides/16Analytics2";
+import Analytics3 from "@/slides/17Analytics3";
+import Analytics4 from "@/slides/18Analytics4";
+import Closing from "@/slides/19Closing";
 
 export const slides: SlideConfig[] = [
-  { section: "", component: Opening },
-  { section: "イントロ", component: Goal },
-  { section: "イントロ", component: Flow },
-  { section: "イントロ", component: Rules },
-  { section: "環境構築", component: Setup },
-  { section: "環境構築", component: SetupFlutter },
-  { section: "環境構築", component: SetupRepo },
-  { section: "環境構築", component: SetupEnv },
-  { section: "環境構築", component: SetupRun },
-  { section: "環境構築", component: SetupClaude },
-  { section: "必須課題", component: MustTask },
-  { section: "休憩", component: Break },
-  { section: "自由課題", component: FreeTask },
-  { section: "発表", component: Presentation },
-  { section: "振り返り", component: Review },
-  { section: "クロージング", component: Closing },
+  { component: Opening },
+  { phase: 0, component: Goal },
+  { phase: 0, component: Flow },
+  { phase: 0, component: Rules },
+  { phase: 1, component: Setup },
+  { phase: 1, component: SetupFlutter },
+  { phase: 1, component: SetupRepo },
+  { phase: 1, component: SetupEnv },
+  { phase: 1, component: SetupRun },
+  { phase: 1, component: SetupClaude },
+  { phase: 2, component: MustTask },
+  { phase: 3, component: Break },
+  { phase: 4, component: FreeTask },
+  { phase: 5, component: Presentation },
+  { phase: 6, theme: "dark", component: Analytics1 },
+  { phase: 6, theme: "dark", component: Analytics2 },
+  { phase: 6, theme: "dark", component: Analytics3 },
+  { phase: 6, theme: "dark", component: Analytics4 },
+  { component: Closing },
 ];

@@ -34,7 +34,7 @@ export default function Analytics4() {
               label="POSTED"
               sizePx={150}
             />
-            <span className="font-analytics text-[64px] font-bold text-white/20">→</span>
+            <span className="font-display text-[64px] font-bold text-foreground/20">→</span>
             <StatNumber
               value={overview.totalPlays.toLocaleString()}
               label="PLAYED"
@@ -43,11 +43,11 @@ export default function Analytics4() {
             />
           </div>
 
-          <p className="max-w-[1250px] text-center text-[28px] font-medium leading-relaxed text-white/55">
+          <p className="max-w-[1250px] text-center text-[28px] font-medium leading-relaxed text-foreground/55">
             世に広めるとは、この&ldquo;見る側&rdquo;の数字を伸ばすこと。その第一歩が計測。
             <br />
             次に自分のアプリを作るときは、
-            <span className="font-bold text-[#D4FF4F]">1行目から仕込もう。</span>
+            <span className="font-bold text-accent">1行目から仕込もう。</span>
           </p>
         </div>
       )}

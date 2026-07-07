@@ -34,9 +34,9 @@ export const slides: SlideConfig[] = [
   { phase: 3, component: Break },
   { phase: 4, component: FreeTask },
   { phase: 5, component: Presentation },
-  { phase: 6, theme: "dark", component: Analytics1 },
-  { phase: 6, theme: "dark", component: Analytics2 },
-  { phase: 6, theme: "dark", component: Analytics3 },
-  { phase: 6, theme: "dark", component: Analytics4 },
+  { phase: 6, component: Analytics1 },
+  { phase: 6, component: Analytics2 },
+  { phase: 6, component: Analytics3 },
+  { phase: 6, component: Analytics4 },
   { component: Closing },
 ];

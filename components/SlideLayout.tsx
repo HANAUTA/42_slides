@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
  * 本文は残りの領域に配置される。
  */
 interface SlideLayoutProps {
-  title: string;
+  title: ReactNode;
   /** タイトル右に添える補足（例: 計3時間） */
   aside?: ReactNode;
   children: ReactNode;

@@ -5,7 +5,7 @@ interface StatNumberProps {
   sizePx?: number;
 }
 
-/** 分析スライド用の巨大な数字表示。アクセントは #D4FF4F 固定、それ以外は白。 */
+/** 分析スライド用の巨大な数字表示。通常スライドの配色に合わせる。 */
 export default function StatNumber({
   value,
   label,
@@ -15,14 +15,14 @@ export default function StatNumber({
   return (
     <div className="flex flex-col items-center">
       <span
-        className={`font-analytics font-bold leading-none tabular-nums ${
-          accent ? "text-[#D4FF4F]" : "text-white"
+        className={`font-display font-extrabold leading-none tabular-nums ${
+          accent ? "text-accent" : "text-foreground"
         }`}
         style={{ fontSize: sizePx }}
       >
         {value}
       </span>
-      <span className="mt-5 whitespace-nowrap text-[20px] font-medium tracking-wide text-white/40">
+      <span className="mt-5 whitespace-nowrap text-[20px] font-bold tracking-wide text-foreground/45">
         {label}
       </span>
     </div>

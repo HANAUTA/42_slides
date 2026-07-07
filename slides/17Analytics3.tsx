@@ -21,7 +21,7 @@ export default function Analytics3() {
     >
       {stats &&
         (stats.totalPosts === 0 ? (
-          <p className="text-[28px] text-white/30">まだ投稿がありません</p>
+          <p className="text-[28px] text-foreground/35">まだ投稿がありません</p>
         ) : (
           <div className="flex w-full flex-col items-center gap-14">
             <div className="grid grid-cols-3 gap-16">
@@ -43,9 +43,9 @@ export default function Analytics3() {
               <RetakeHistogram histogram={stats.histogram} max={stats.max} />
             </div>
 
-            <p className="max-w-[1100px] text-center text-[26px] font-medium leading-relaxed text-white/50">
+            <p className="max-w-[1100px] text-center text-[26px] font-medium leading-relaxed text-foreground/55">
               完璧を求める気持ちはデータに出る。でも
-              <span className="font-bold text-[#D4FF4F]">
+              <span className="font-bold text-accent">
                 Done is better than perfect.
               </span>
             </p>

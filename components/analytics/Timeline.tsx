@@ -24,7 +24,7 @@ interface TimelineProps {
 
 export default function Timeline({ points }: TimelineProps) {
   if (points.length === 0) {
-    return <p className="text-[26px] text-white/30">まだデータがありません</p>;
+    return <p className="text-[26px] text-foreground/35">まだデータがありません</p>;
   }
 
   const max = Math.max(1, ...points.flatMap((p) => SERIES.map((s) => p.counts[s.key])));
@@ -57,13 +57,13 @@ export default function Timeline({ points }: TimelineProps) {
             x2={WIDTH}
             y1={HEIGHT * f}
             y2={HEIGHT * f}
-            stroke="rgba(255,255,255,0.06)"
+            stroke="rgba(26,26,26,0.08)"
             strokeWidth={1}
           />
         ))}
 
         {SERIES.filter((s) => s.fill).map((s) => (
-          <path key={`${s.key}-fill`} d={areaPath(s.key)} fill="#D4FF4F" fillOpacity={0.08} />
+          <path key={`${s.key}-fill`} d={areaPath(s.key)} fill="#4AADE4" fillOpacity={0.1} />
         ))}
 
         {SERIES.map((s) => (
@@ -71,7 +71,7 @@ export default function Timeline({ points }: TimelineProps) {
             key={s.key}
             d={linePath(s.key)}
             fill="none"
-            stroke="#D4FF4F"
+            stroke="#4AADE4"
             strokeOpacity={s.opacity}
             strokeWidth={s.key === "sign_up" ? 4 : 2.5}
             strokeLinejoin="round"
@@ -85,7 +85,7 @@ export default function Timeline({ points }: TimelineProps) {
             x={i * stepX}
             y={HEIGHT + 32}
             textAnchor={i === 0 ? "start" : i === points.length - 1 ? "end" : "middle"}
-            fill="rgba(255,255,255,0.3)"
+            fill="rgba(26,26,26,0.35)"
             fontSize={20}
           >
             {points[i].label}
@@ -97,10 +97,10 @@ export default function Timeline({ points }: TimelineProps) {
         {SERIES.map((s) => (
           <div key={s.key} className="flex items-center gap-3">
             <span
-              className="h-[10px] w-[26px] rounded-full bg-[#D4FF4F]"
+              className="h-[10px] w-[26px] rounded-full bg-accent"
               style={{ opacity: s.opacity }}
             />
-            <span className="font-analytics text-[18px] font-medium text-white/50">
+            <span className="text-[18px] font-medium text-foreground/50">
               {s.label}
             </span>
           </div>

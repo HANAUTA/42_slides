@@ -45,13 +45,13 @@ export default function Analytics1() {
             ))}
           </div>
 
-          <div className="flex items-center gap-6 rounded-full border border-[#2A2A35] bg-[#15151C] px-10 py-5">
-            <span className="font-analytics text-[26px] font-bold text-white">
-              📱 mobile <span className="text-[#D4FF4F]">{overview.mobilePct}%</span>
+          <div className="flex items-center gap-6 rounded-full border border-foreground/10 bg-foreground/[0.02] px-10 py-5">
+            <span className="text-[26px] font-bold text-foreground/70">
+              📱 mobile <span className="text-accent">{overview.mobilePct}%</span>
             </span>
-            <span className="h-[24px] w-px bg-[#2A2A35]" />
-            <span className="font-analytics text-[26px] font-bold text-white">
-              🌐 web <span className="text-[#D4FF4F]">{overview.webPct}%</span>
+            <span className="h-[24px] w-px bg-foreground/10" />
+            <span className="text-[26px] font-bold text-foreground/70">
+              🌐 web <span className="text-accent">{overview.webPct}%</span>
             </span>
           </div>
         </div>

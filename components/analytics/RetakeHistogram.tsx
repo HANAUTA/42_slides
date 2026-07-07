@@ -26,14 +26,14 @@ export default function RetakeHistogram({ histogram, max }: RetakeHistogramProps
     <div className="flex h-[300px] items-end gap-5">
       {bars.map((b) => (
         <div key={b.label} className="flex flex-1 flex-col items-center gap-4">
-          <span className="font-analytics text-[20px] font-bold text-white/60">
+          <span className="font-display text-[20px] font-bold text-foreground/55">
             {b.count}
           </span>
           <div
-            className={`w-full rounded-t-lg ${b.hero ? "bg-[#D4FF4F]" : "bg-[#D4FF4F]/25"}`}
+            className={`w-full rounded-t-lg ${b.hero ? "bg-accent" : "bg-accent/25"}`}
             style={{ height: `${(b.count / maxCount) * 210}px` }}
           />
-          <span className="font-analytics text-[18px] text-white/35">{b.label}</span>
+          <span className="font-display text-[18px] text-foreground/40">{b.label}</span>
         </div>
       ))}
     </div>

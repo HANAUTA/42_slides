@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import SlideLayout from "@/components/SlideLayout";
 
 interface AnalyticsFrameProps {
   kicker: string;
@@ -24,7 +25,7 @@ function RefreshIcon() {
   );
 }
 
-/** 分析4枚共通の器。ダークシネマティック配色 + 更新ボタン/最終更新時刻/フォールバック表示を持つ。 */
+/** 分析4枚共通の器。通常スライドと同じ余白・見出しに更新表示を添える。 */
 export default function AnalyticsFrame({
   kicker,
   title,
@@ -34,51 +35,45 @@ export default function AnalyticsFrame({
   onRefresh,
   children,
 }: AnalyticsFrameProps) {
+  const aside = (
+    <div className="flex flex-col items-end gap-3">
+      <p className="font-display text-[18px] font-bold tracking-[0.18em] text-accent/75">
+        {kicker}
+      </p>
+      <button
+        type="button"
+        onClick={onRefresh}
+        className="pointer-events-auto flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/[0.02] px-6 py-3 text-[16px] font-bold text-foreground/50 transition-colors hover:border-accent/35 hover:text-accent"
+      >
+        <RefreshIcon />
+        更新
+      </button>
+      {isFallback && (
+        <span className="rounded-full bg-accent/10 px-4 py-1.5 text-[15px] font-bold text-accent">
+          デモデータ表示中
+        </span>
+      )}
+      {updatedAt && !loading && (
+        <span className="font-mono text-[15px] text-foreground/30">
+          updated{" "}
+          {updatedAt.toLocaleTimeString("ja-JP", {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </span>
+      )}
+    </div>
+  );
+
   return (
-    <div className="flex h-full w-full flex-col bg-[#0A0A0F] px-[150px] pb-[110px] pt-[150px]">
-      <div className="flex shrink-0 items-start justify-between">
-        <div>
-          <p className="font-analytics text-[20px] font-bold uppercase tracking-[0.35em] text-[#D4FF4F]/70">
-            {kicker}
-          </p>
-          <h2 className="mt-5 max-w-[1250px] text-[54px] font-bold leading-[1.2] text-white">
-            {title}
-          </h2>
-        </div>
-
-        <div className="flex flex-col items-end gap-3">
-          <button
-            type="button"
-            onClick={onRefresh}
-            className="flex items-center gap-2 rounded-full border border-[#2A2A35] bg-[#15151C] px-6 py-3 text-[16px] font-medium text-white/50 transition-colors hover:border-[#D4FF4F]/40 hover:text-[#D4FF4F]"
-          >
-            <RefreshIcon />
-            更新
-          </button>
-          {isFallback && (
-            <span className="rounded-full bg-[#D4FF4F]/10 px-4 py-1.5 text-[15px] font-bold text-[#D4FF4F]">
-              ⚠ デモデータ表示中
-            </span>
-          )}
-          {updatedAt && !loading && (
-            <span className="font-analytics text-[15px] text-white/25">
-              updated{" "}
-              {updatedAt.toLocaleTimeString("ja-JP", {
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </span>
-          )}
-        </div>
-      </div>
-
-      <div className="flex flex-1 items-center justify-center">
+    <SlideLayout title={title} aside={aside}>
+      <div className="flex w-full flex-1 items-center justify-center">
         {loading ? (
-          <div className="h-12 w-12 animate-spin rounded-full border-4 border-white/10 border-t-[#D4FF4F]" />
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-foreground/10 border-t-accent" />
         ) : (
           children
         )}
       </div>
-    </div>
+    </SlideLayout>
   );
 }

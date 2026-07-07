@@ -7,6 +7,8 @@ import type { ReactNode } from "react";
  */
 interface SlideLayoutProps {
   title: string;
+  /** タイトル右に添える補足（例: 計3時間） */
+  aside?: ReactNode;
   children: ReactNode;
   /** 本文領域の縦位置 */
   align?: "start" | "center";
@@ -14,16 +16,20 @@ interface SlideLayoutProps {
 
 export default function SlideLayout({
   title,
+  aside,
   children,
   align = "center",
 }: SlideLayoutProps) {
   return (
     <div className="flex h-full w-full flex-col px-[160px] pt-[128px] pb-[150px]">
-      <header className="shrink-0">
-        <h2 className="text-[68px] font-bold leading-tight tracking-tight text-foreground">
-          {title}
-        </h2>
-        <div className="mt-7 h-[5px] w-[88px] rounded-full bg-accent" />
+      <header className="flex shrink-0 items-end justify-between">
+        <div>
+          <h2 className="font-display text-[64px] font-extrabold leading-tight tracking-tight text-foreground">
+            {title}
+          </h2>
+          <div className="mt-6 h-[6px] w-[88px] rounded-full bg-accent" />
+        </div>
+        {aside && <div className="pb-3">{aside}</div>}
       </header>
 
       <div

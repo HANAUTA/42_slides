@@ -1,15 +1,45 @@
 import SlideLayout from "@/components/SlideLayout";
 import CodeBlock from "@/components/CodeBlock";
 
+function StepChip({ label }: { label: string }) {
+  return (
+    <span className="rounded-full bg-accent/10 px-7 py-3 font-display text-[26px] font-bold text-accent">
+      {label}
+    </span>
+  );
+}
+
 export default function SetupRun() {
   return (
-    <SlideLayout title="アプリ起動" align="center">
-      <div className="mx-auto flex w-full max-w-[1000px] flex-col items-center gap-8">
-        <CodeBlock lines={["flutter run -d chrome"]} />
-        <p className="text-[30px] font-medium text-foreground/50">または</p>
-        <div className="rounded-2xl border-2 border-accent/25 bg-accent/5 px-16 py-6 font-mono text-[44px] font-bold text-foreground">
-          F5
+    <SlideLayout title="アプリを起動！" aside={<StepChip label="STEP 3" />} align="center">
+      <div className="mx-auto flex w-full max-w-[1000px] flex-col items-center">
+        <div className="rise-in w-full">
+          <CodeBlock
+            title="terminal — run"
+            lines={[{ cmd: "flutter run -d chrome", note: "Chrome でアプリを起動" }]}
+          />
         </div>
+
+        <p
+          className="rise-in mt-11 text-[34px] font-bold text-foreground"
+          style={{ animationDelay: "150ms" }}
+        >
+          Chrome が立ち上がってアプリが表示されたら成功 🎉
+        </p>
+
+        <p
+          className="rise-in mt-8 rounded-full bg-accent/10 px-10 py-4 font-display text-[26px] font-bold text-accent"
+          style={{ animationDelay: "300ms" }}
+        >
+          🏁 全員が起動できたら、環境構築ゴール達成！
+        </p>
+
+        <p
+          className="rise-in mt-7 text-[22px] font-medium text-foreground/45"
+          style={{ animationDelay: "420ms" }}
+        >
+          動かなくても大丈夫。スタッフを呼んでください 🙋
+        </p>
       </div>
     </SlideLayout>
   );

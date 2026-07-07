@@ -4,11 +4,11 @@ import Goal from "@/slides/02Goal";
 import Flow from "@/slides/03Flow";
 import Rules from "@/slides/04Rules";
 import Setup from "@/slides/05Setup";
-import SetupSdk from "@/slides/06SetupSdk";
-import SetupClone from "@/slides/07SetupClone";
-import SetupEditor from "@/slides/08SetupEditor";
+import SetupFlutter from "@/slides/06SetupFlutter";
+import SetupRepo from "@/slides/07SetupRepo";
+import SetupEnv from "@/slides/08SetupEnv";
 import SetupRun from "@/slides/09SetupRun";
-import SetupDone from "@/slides/10SetupDone";
+import SetupClaude from "@/slides/10SetupClaude";
 import MustTask from "@/slides/11MustTask";
 import Break from "@/slides/12Break";
 import FreeTask from "@/slides/13FreeTask";
@@ -22,11 +22,11 @@ export const slides: SlideConfig[] = [
   { section: "イントロ", component: Flow },
   { section: "イントロ", component: Rules },
   { section: "環境構築", component: Setup },
-  { section: "環境構築", component: SetupSdk },
-  { section: "環境構築", component: SetupClone },
-  { section: "環境構築", component: SetupEditor },
+  { section: "環境構築", component: SetupFlutter },
+  { section: "環境構築", component: SetupRepo },
+  { section: "環境構築", component: SetupEnv },
   { section: "環境構築", component: SetupRun },
-  { section: "環境構築", component: SetupDone },
+  { section: "環境構築", component: SetupClaude },
   { section: "必須課題", component: MustTask },
   { section: "休憩", component: Break },
   { section: "自由課題", component: FreeTask },

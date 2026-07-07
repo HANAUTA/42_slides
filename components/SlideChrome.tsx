@@ -14,13 +14,18 @@ export default function SlideChrome({
   const pad = (n: number) => String(n).padStart(2, "0");
 
   return (
-    <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-[160px] pt-[58px]">
-      <span className="text-[24px] font-semibold tracking-[0.18em] text-foreground/35">
-        {section ?? ""}
+    <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-[160px] pt-[56px]">
+      <span className="flex items-center gap-3 text-[23px] font-semibold tracking-[0.16em] text-foreground/40">
+        {section && (
+          <>
+            <span className="h-[10px] w-[10px] rounded-full bg-accent/70" />
+            {section}
+          </>
+        )}
       </span>
-      <span className="font-mono text-[24px] tabular-nums text-foreground/35">
+      <span className="font-mono text-[23px] tabular-nums text-foreground/35">
         {pad(current)}
-        <span className="mx-2 text-foreground/20">/</span>
+        <span className="mx-2 text-foreground/15">/</span>
         {pad(total)}
       </span>
     </div>

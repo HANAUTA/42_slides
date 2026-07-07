@@ -10,6 +10,10 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
+  --font-sans: var(--font-noto-sans-jp), sans-serif;
+  --font-display: var(--font-mplus-rounded), var(--font-noto-sans-jp),
+    sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
 body {
@@ -18,15 +22,33 @@ body {
   overflow: hidden;
 }
 
-@keyframes slide-fade-in {
+@keyframes slide-enter {
   from {
     opacity: 0;
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .slide-fade-in {
-  animation: slide-fade-in 0.3s ease-in-out;
+  animation: slide-enter 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* スライド内要素の時間差登場。style で animation-delay を指定する */
+.rise-in {
+  animation: rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

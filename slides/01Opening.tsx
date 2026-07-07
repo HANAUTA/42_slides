@@ -9,30 +9,47 @@ export default function Opening() {
       <BrandDecoration />
 
       <div className="relative flex flex-col items-center">
-        <Image
-          src="/logo.png"
-          alt="hanauta"
-          width={132}
-          height={132}
-          priority
-          className="mb-12 rounded-3xl"
-        />
+        <div className="rise-in" style={{ animationDelay: "0ms" }}>
+          <Image
+            src="/logo.png"
+            alt="hanauta"
+            width={128}
+            height={128}
+            priority
+            className="mb-12 rounded-3xl shadow-lg shadow-accent/20"
+          />
+        </div>
 
-        <p className="mb-7 text-[26px] font-semibold lowercase tracking-[0.4em] text-accent">
-          hanauta hackathon
+        <p
+          className="rise-in mb-7 font-display text-[26px] font-bold lowercase tracking-[0.42em] text-accent"
+          style={{ animationDelay: "120ms" }}
+        >
+          hanauta presents
         </p>
 
-        <h1 className="text-center text-[112px] font-bold leading-[0.95] tracking-tight text-foreground">
+        <h1
+          className="rise-in text-center font-display text-[116px] font-extrabold leading-[0.95] tracking-tight text-foreground"
+          style={{ animationDelay: "220ms" }}
+        >
           Hackathon 2026
         </h1>
 
-        <div className="my-9 h-[5px] w-[100px] rounded-full bg-accent" />
+        <div
+          className="rise-in my-10 h-[6px] w-[110px] rounded-full bg-accent"
+          style={{ animationDelay: "340ms" }}
+        />
 
-        <p className="text-[44px] font-medium tracking-wide text-foreground/80">
+        <p
+          className="rise-in font-display text-[46px] font-bold tracking-wide text-foreground/85"
+          style={{ animationDelay: "420ms" }}
+        >
           Flutter <span className="mx-3 text-accent">×</span> AI
         </p>
 
-        <p className="mt-12 font-mono text-[26px] tracking-widest text-foreground/40">
+        <p
+          className="rise-in mt-12 rounded-full border border-foreground/10 px-9 py-3 font-mono text-[24px] tracking-[0.25em] text-foreground/45"
+          style={{ animationDelay: "520ms" }}
+        >
           {EVENT_DATE}
         </p>
       </div>

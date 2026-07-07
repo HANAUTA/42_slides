@@ -1,24 +1,53 @@
 import SlideLayout from "@/components/SlideLayout";
-import CheckList, { type CheckItem } from "@/components/CheckList";
 import Callout from "@/components/Callout";
 
-const GOALS: CheckItem[] = [
-  { label: "Flutterに触れてみる" },
-  { label: "AIを使って開発してみる" },
-  { label: "スマホ・ブラウザでアプリを動かす" },
-  { label: "自分だけの機能を追加する" },
+interface Goal {
+  icon: string;
+  label: string;
+}
+
+const GOALS: Goal[] = [
+  { icon: "💙", label: "Flutterに触れてみる" },
+  { icon: "🤖", label: "AIを使って開発してみる" },
+  { icon: "📱", label: "スマホ・ブラウザでアプリを動かす" },
+  { icon: "✨", label: "自分だけの機能を追加する" },
 ];
 
 export default function Goal() {
   return (
-    <SlideLayout title="今日のゴール 🚀" align="center">
-      <p className="mb-10 text-[34px] font-medium text-foreground/60">
-        今日この3時間で…
-      </p>
-      <CheckList items={GOALS} size="lg" />
-      <div className="mt-12">
+    <SlideLayout
+      title="今日のゴール"
+      aside={
+        <span className="rounded-full bg-accent/10 px-7 py-3 font-display text-[26px] font-bold text-accent">
+          3時間でここまで！
+        </span>
+      }
+      align="center"
+    >
+      <div className="grid grid-cols-2 gap-7">
+        {GOALS.map((goal, i) => (
+          <div
+            key={goal.label}
+            className="rise-in flex items-center gap-8 rounded-[24px] border border-foreground/[0.07] bg-foreground/[0.02] px-10 py-9"
+            style={{ animationDelay: `${i * 90}ms` }}
+          >
+            <span className="flex h-[76px] w-[76px] shrink-0 items-center justify-center rounded-2xl bg-accent/10 text-[38px]">
+              {goal.icon}
+            </span>
+            <span className="text-[31px] font-bold text-foreground">
+              {goal.label}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div className="rise-in mt-12" style={{ animationDelay: "400ms" }}>
         <Callout>
-          今日は勉強会ではなく、実際に手を動かして開発を楽しむ日です！
+          今日は勉強会ではなく、
+          <span className="font-bold text-accent">
+            実際に手を動かして開発を楽しむ日
+          </span>
+          です！
         </Callout>
       </div>
     </SlideLayout>

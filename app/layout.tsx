@@ -1,15 +1,26 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist_Mono, M_PLUS_Rounded_1c, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSansJp = Noto_Sans_JP({
+  variable: "--font-noto-sans-jp",
+  subsets: ["latin"],
+});
+
+const mplusRounded = M_PLUS_Rounded_1c({
+  variable: "--font-mplus-rounded",
+  weight: ["500", "700", "800"],
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "2026 Hackathon — Flutter × AI",
-  description: "Hackathon Presentation Slides",
+  title: "hanauta Hackathon 2026 — Flutter × AI",
+  description: "hanauta Hackathon 2026 presentation slides",
 };
 
 export default function RootLayout({
@@ -18,10 +29,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${geistSans.variable} h-full antialiased`}>
-      <body className="h-full font-[family-name:var(--font-geist-sans)]">
-        {children}
-      </body>
+    <html
+      lang="ja"
+      className={`${notoSansJp.variable} ${mplusRounded.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="h-full font-sans">{children}</body>
     </html>
   );
 }

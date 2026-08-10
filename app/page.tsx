@@ -5,6 +5,7 @@ import { slides } from "@/data/slides";
 import Stage from "@/components/Stage";
 import Slide from "@/components/Slide";
 import SlideChrome from "@/components/SlideChrome";
+import MascotCorner from "@/components/MascotCorner";
 import ProgressBar from "@/components/ProgressBar";
 import KeyboardNavigation from "@/components/KeyboardNavigation";
 
@@ -38,13 +39,16 @@ export default function Home() {
         onLast={goLast}
       />
       <Stage>
-        <Slide key={currentIndex} component={currentSlide.component} />
+        <Slide key={`slide-${currentIndex}`} component={currentSlide.component} />
         <SlideChrome
           phase={currentSlide.phase}
           current={currentIndex + 1}
           total={slides.length}
           theme={currentSlide.theme}
         />
+        {!currentSlide.hideMascot && (
+          <MascotCorner key={`mascot-${currentIndex}`} index={currentSlide.mascot} />
+        )}
         <ProgressBar
           current={currentIndex}
           total={slides.length}

@@ -5,5 +5,9 @@ export interface SlideConfig {
   phase?: number;
   /** ヘッダー/フッターの配色。"dark" は分析スライドなど暗転演出用。省略時は "light" */
   theme?: "light" | "dark";
+  /** true の場合、右下のランダムマスコットを表示しない */
+  hideMascot?: boolean;
+  /** 右下マスコットを固定したい場合の CHARACTERS index（components/MascotCorner.tsx）。省略時はランダム */
+  mascot?: number;
   component: ComponentType;
 }

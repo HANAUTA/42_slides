@@ -1,4 +1,5 @@
 import type { SlideConfig } from "./types";
+import IceBreak from "@/slides/00IceBreak";
 import Opening from "@/slides/01Opening";
 import Goal from "@/slides/02Goal";
 import Flow from "@/slides/03Flow";
@@ -20,7 +21,8 @@ import Analytics4 from "@/slides/18Analytics4";
 import Closing from "@/slides/19Closing";
 
 export const slides: SlideConfig[] = [
-  { component: Opening },
+  { component: IceBreak, mascot: 4 },
+  { component: Opening, hideMascot: true },
   { phase: 0, component: Goal },
   { phase: 0, component: Flow },
   { phase: 0, component: Rules },

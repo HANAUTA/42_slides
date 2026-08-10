@@ -11,12 +11,12 @@ export default function Opening() {
       <div className="relative flex flex-col items-center">
         <div className="rise-in" style={{ animationDelay: "0ms" }}>
           <Image
-            src="/logo.png"
+            src="/hanau-tan_servicex2.png"
             alt="hanauta"
-            width={128}
-            height={128}
+            width={236}
+            height={236}
             priority
-            className="mb-12 rounded-3xl shadow-lg shadow-accent/20"
+            className="mb-12 h-[168px] w-[168px]"
           />
         </div>
 

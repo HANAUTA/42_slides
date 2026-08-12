@@ -1,7 +1,7 @@
 import Image from "next/image";
 import BrandDecoration from "@/components/BrandDecoration";
 
-const EVENT_DATE = "2026.06.25";
+const EVENT_DATE = "2026.08.21";
 
 export default function Opening() {
   return (

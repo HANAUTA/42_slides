@@ -40,5 +40,5 @@ export const slides: SlideConfig[] = [
   { phase: 6, component: Analytics2 },
   { phase: 6, component: Analytics3 },
   { phase: 6, component: Analytics4 },
-  { component: Closing },
+  { component: Closing, hideMascot: true },
 ];

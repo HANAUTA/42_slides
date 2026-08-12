@@ -4,6 +4,7 @@ const LEADER_STEPS = [
   "GitHub で空リポジトリを作成（Public・Initialize なし）",
   "テンプレを clone（hanauta_hackathon）",
   ".git を作り直して自分のリポジトリへ push",
+  "メンバーをCollaboratorとして招待（Settings → Collaborators）",
   "flutter pub get",
 ];
 

@@ -25,7 +25,7 @@ export default function IceBreak() {
       <div className="relative mt-20 flex flex-1 items-center">
         <div className="grid w-full grid-cols-[1fr_1.2fr] items-center gap-20">
           <div className="rise-in flex justify-center">
-            <Timer seconds={5 * 60} size="md" editable hideFinishedLabel />
+            <Timer seconds={5 * 60} size="md" simple />
           </div>
 
           <div

@@ -17,7 +17,7 @@ export default function Break() {
         ひとやすみ
       </h2>
       <div className="rise-in mt-4" style={{ animationDelay: "200ms" }}>
-        <Timer seconds={5 * 60} size="lg" />
+        <Timer seconds={5 * 60} size="lg" simple />
       </div>
       <p
         className="rise-in mt-6 text-[30px] font-medium text-foreground/45"

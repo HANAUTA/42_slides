@@ -31,7 +31,7 @@ const LEVELS: Level[] = [
     label: "実機",
     badgeClass: "bg-sky-400",
     desc: "スマホで動かしてみる",
-    detail: "GitHub Actions に環境変数を入れて実機テスト",
+    detail: "GitHub PagesでPWA公開 → 自分のスマホのブラウザで開くだけ",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function FreeTask() {
     <SlideLayout title="自由課題・カスタマイズ" align="center">
       <div className="grid grid-cols-[1fr_1.25fr] items-center gap-16">
         <div className="rise-in flex justify-center">
-          <Timer seconds={50 * 60} size="md" />
+          <Timer seconds={50 * 60} size="md" simple />
         </div>
 
         <div className="flex flex-col gap-5">

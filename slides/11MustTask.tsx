@@ -30,7 +30,7 @@ export default function MustTask() {
     <SlideLayout title="必須課題" align="center">
       <div className="grid grid-cols-[1fr_1.2fr] items-center gap-20">
         <div className="rise-in flex justify-center">
-          <Timer seconds={40 * 60} size="md" />
+          <Timer seconds={40 * 60} size="md" simple />
         </div>
 
         <div className="flex flex-col gap-6">

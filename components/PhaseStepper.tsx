@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { PHASES } from "@/data/phases";
 
 interface PhaseStepperProps {
-  /** 現在のフェーズ index（0-6）。undefined ならステッパーごと非表示 */
+  /** 現在のフェーズ index（0-4）。undefined ならステッパーごと非表示 */
   current?: number;
   theme?: "light" | "dark";
 }
@@ -56,7 +56,7 @@ export default function PhaseStepper({ current, theme = "light" }: PhaseStepperP
             </div>
             {i < PHASES.length - 1 && (
               <div
-                className={`mx-3 mt-[5px] h-[2px] w-[52px] rounded-full ${
+                className={`mx-3 mt-[5px] h-[2px] w-[76px] rounded-full ${
                   done
                     ? dark
                       ? "bg-[#D4FF4F]/30"

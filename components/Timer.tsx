@@ -5,7 +5,7 @@ import { useEffect, useState, type ChangeEvent, type MouseEvent } from "react";
 interface TimerProps {
   /** カウントダウン秒数（初期値） */
   seconds: number;
-  size?: "md" | "lg";
+  size?: "sm" | "md" | "lg";
   /** true の場合、色変化や終了演出のないシンプルなカウントダウンにする。
    *  開始前は分数を手動入力・±1分で調整でき、0になったら00:00で止まって固まる。 */
   simple?: boolean;
@@ -20,6 +20,14 @@ export default function Timer({ seconds, size = "md", simple = false }: TimerPro
 }
 
 const SIZE = {
+  // 3桁分（100:00）でも横に収まるサイズ。並列レイアウト用。
+  sm: {
+    time: "text-[108px]",
+    done: "text-[68px]",
+    button: "h-[64px] w-[64px]",
+    icon: "h-[26px] w-[26px]",
+    step: "h-[46px] w-[46px] text-[24px]",
+  },
   md: {
     time: "text-[150px]",
     done: "text-[90px]",
@@ -61,7 +69,7 @@ function PauseIcon({ className }: { className: string }) {
 
 interface VariantProps {
   seconds: number;
-  size: "md" | "lg";
+  size: "sm" | "md" | "lg";
 }
 
 /** クリックで開始 / 一時停止できる大きなカウントダウンタイマー（従来仕様）。 */

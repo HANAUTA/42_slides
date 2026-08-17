@@ -1,7 +1,7 @@
 import PhaseStepper from "@/components/PhaseStepper";
 
 interface SlideChromeProps {
-  /** 現在のフェーズ index（0-6）。undefined ならステッパーを表示しない */
+  /** 現在のフェーズ index（0-4）。undefined ならステッパーを表示しない */
   phase?: number;
   current: number;
   total: number;

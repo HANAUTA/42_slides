@@ -5,7 +5,6 @@ interface SetupStep {
   num: string;
   title: string;
   desc: string;
-  optional?: boolean;
 }
 
 const STEPS: SetupStep[] = [
@@ -18,9 +17,8 @@ const STEPS: SetupStep[] = [
   { num: "3", title: "アプリを起動", desc: ".env を設定して flutter run" },
   {
     num: "4",
-    title: "Claude Code",
+    title: "Antigravity（任意）",
     desc: "AI開発の相棒をセットアップ",
-    optional: true,
   },
 ];
 
@@ -44,11 +42,6 @@ export default function Setup() {
             className="rise-in relative flex flex-col rounded-[24px] border border-foreground/[0.07] bg-foreground/[0.02] px-8 py-9"
             style={{ animationDelay: `${120 + i * 90}ms` }}
           >
-            {step.optional && (
-              <span className="absolute right-5 top-5 rounded-full bg-foreground/[0.06] px-4 py-1 font-display text-[17px] font-bold text-foreground/45">
-                任意
-              </span>
-            )}
             <span className="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-accent font-display text-[28px] font-extrabold text-white shadow-lg shadow-accent/25">
               {step.num}
             </span>
@@ -66,7 +59,7 @@ export default function Setup() {
         className="rise-in mt-11 text-center text-[22px] font-medium text-foreground/45"
         style={{ animationDelay: "500ms" }}
       >
-        VS Code・Chrome・Git・GitHub アカウントは
+        VS Code・Chrome・Git・GitHub / Google アカウントは
         <span className="font-bold text-foreground/60">事前準備ガイド</span>
         で用意済みの前提です
       </p>

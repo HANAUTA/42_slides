@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BrandDecoration from "@/components/BrandDecoration";
+import { asset } from "@/lib/asset";
 
 const EVENT_DATE = "2026.08.21";
 
@@ -11,7 +12,7 @@ export default function Opening() {
       <div className="relative flex flex-col items-center">
         <div className="rise-in" style={{ animationDelay: "0ms" }}>
           <Image
-            src="/hanau-tan_servicex2.png"
+            src={asset("/hanau-tan_servicex2.png")}
             alt="hanauta"
             width={236}
             height={236}

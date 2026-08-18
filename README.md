@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 42 ハッカソン スライド
 
-## Getting Started
+Next.js（App Router）製のスライドデッキ。← → / Space で送ります。
 
-First, run the development server:
+## 公開版（見るだけの人はこちら）
+
+https://hanauta.github.io/42_slides/
+
+main に push すると GitHub Actions が自動でビルド・デプロイします（[.github/workflows/deploy.yml](.github/workflows/deploy.yml)）。
+公開版は Supabase の環境変数を渡していないため、**分析スライドはデモデータ**（右上に「デモデータ表示中」バッジ）で表示されます。
+
+## ローカルで動かす
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 を開きます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+当日の**実データ**を分析スライドに出すには `.env.local` が必要です（運営から受け取ってください）。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
 
-## Learn More
+未設定でも起動でき、その場合はデモデータになります。
 
-To learn more about Next.js, take a look at the following resources:
+## 構成
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| パス | 中身 |
+| --- | --- |
+| [slides/](slides/) | スライド本体（ファイル名の連番＝表示順） |
+| [data/slides.ts](data/slides.ts) | スライドの並び順とフェーズの割り当て |
+| [data/phases.ts](data/phases.ts) | 進行フェーズ（スケジュールと上部ステッパーで共有） |
+| [components/](components/) | レイアウト・タイマー・ステッパーなど共通部品 |
+| [lib/](lib/) | Supabase 接続と分析データの集計 |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## デプロイの仕組み
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `output: "export"` で `out/` に静的書き出し（サーバー不要）
+- GitHub Pages はサブパス配信のため、CI で `NEXT_PUBLIC_BASE_PATH=/42_slides` を渡す
+- `next/image` は `unoptimized` のとき basePath を付けないので、画像は [lib/asset.ts](lib/asset.ts) の `asset()` を通す

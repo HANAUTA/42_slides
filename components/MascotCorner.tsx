@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 
 // 右下マスコットの候補。index を SlideConfig.mascot で指定すれば手動固定できる。
 export const CHARACTERS = [
@@ -35,7 +36,7 @@ export default function MascotCorner({ index }: MascotCornerProps) {
 
   return (
     <Image
-      src={character.src}
+      src={asset(character.src)}
       alt=""
       width={character.width}
       height={character.height}

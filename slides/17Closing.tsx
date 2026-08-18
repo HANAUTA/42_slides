@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BrandDecoration from "@/components/BrandDecoration";
+import { asset } from "@/lib/asset";
 
 const ITEMS = [
   { icon: "📝", label: "アンケートのお願い" },
@@ -16,7 +17,7 @@ export default function Closing() {
       <div className="relative flex flex-col items-center">
         <div className="rise-in">
           <Image
-            src="/member.png"
+            src={asset("/member.png")}
             alt="hanauta"
             width={474}
             height={474}

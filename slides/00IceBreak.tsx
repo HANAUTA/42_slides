@@ -1,6 +1,7 @@
 import Image from "next/image";
 import BrandDecoration from "@/components/BrandDecoration";
 import Timer from "@/components/Timer";
+import { asset } from "@/lib/asset";
 
 export default function IceBreak() {
   return (
@@ -9,7 +10,7 @@ export default function IceBreak() {
 
       <header className="relative flex shrink-0 items-center gap-7">
         <Image
-          src="/logo3-syusei-1024x156.png"
+          src={asset("/logo3-syusei-1024x156.png")}
           alt="hanauta"
           width={1024}
           height={156}

@@ -11,6 +11,9 @@ export interface AnalyticsEvent {
 const FETCH_LIMIT = 20000;
 
 export async function fetchAnalyticsEvents(): Promise<AnalyticsEvent[]> {
+  // 公開版（環境変数なし）ではここで抜けて、呼び出し側がデモデータに切り替える
+  if (!supabase) throw new Error("Supabase is not configured");
+
   const { data, error } = await supabase
     .from("analytics_events")
     .select("id, event_name, properties, created_at")

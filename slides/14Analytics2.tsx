@@ -1,26 +1,48 @@
 "use client";
 
 import AnalyticsFrame from "@/components/analytics/AnalyticsFrame";
-import Timeline from "@/components/analytics/Timeline";
+import BigStat from "@/components/analytics/BigStat";
 import { useAnalyticsEvents } from "@/lib/useAnalyticsEvents";
-import { computeTimeline } from "@/lib/analytics";
+import { computePlayStats } from "@/lib/analytics";
 
 export default function Analytics2() {
   const { events, loading, isFallback, updatedAt, refresh } = useAnalyticsEvents();
-  const timeline = events ? computeTimeline(events) : [];
+  const stats = events ? computePlayStats(events) : null;
 
   return (
     <AnalyticsFrame
       kicker="Data Drop · 02"
-      title="今日という日の心電図"
+      title={
+        <>
+          作ったものは、
+          <br />
+          ちゃんと見られた
+        </>
+      }
       loading={loading}
       isFallback={isFallback}
       updatedAt={updatedAt}
       onRefresh={refresh}
     >
-      <div className="w-full max-w-[1600px]">
-        <Timeline points={timeline} />
-      </div>
+      {stats && (
+        <BigStat
+          label="動画が再生された回数"
+          value={stats.totalPlays.toLocaleString()}
+          unit="回"
+          caption={
+            <>
+              「自分だけのアプリ」で終わらなかった証拠。
+              <br />
+              この回数だけ、
+              <span className="font-bold text-accent">誰かの画面で動画が動いています。</span>
+            </>
+          }
+          chips={[
+            { label: "投稿された動画", value: `${stats.totalPosts.toLocaleString()}本` },
+            { label: "1本あたりの再生", value: `${stats.averagePlays.toFixed(1)}回` },
+          ]}
+        />
+      )}
     </AnalyticsFrame>
   );
 }

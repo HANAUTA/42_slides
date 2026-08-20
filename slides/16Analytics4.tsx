@@ -1,24 +1,25 @@
 "use client";
 
 import AnalyticsFrame from "@/components/analytics/AnalyticsFrame";
-import StatNumber from "@/components/analytics/StatNumber";
+import BigStat from "@/components/analytics/BigStat";
 import { useAnalyticsEvents } from "@/lib/useAnalyticsEvents";
-import { computeOverview } from "@/lib/analytics";
+import { computeGroupStats } from "@/lib/analytics";
 
 export default function Analytics4() {
-  const { events, loading, isFallback, updatedAt, refresh } = useAnalyticsEvents();
-  const overview = events ? computeOverview(events) : null;
-  const avgPlays =
-    overview && overview.totalPosts > 0 ? overview.totalPlays / overview.totalPosts : 0;
+  const { events, groupNames, loading, isFallback, updatedAt, refresh } =
+    useAnalyticsEvents();
+  const stats = events ? computeGroupStats(events) : null;
+  // group_names ビューが無ければ名前は引けない。その場合は人数だけ出す
+  const teamName = stats?.maxGroupId ? groupNames[stats.maxGroupId] : undefined;
 
   return (
     <AnalyticsFrame
-      kicker="Data Drop · 04 / Final"
+      kicker="Data Drop · 04"
       title={
         <>
-          作る人1人に、
+          一番大きかった
           <br />
-          見る人{overview ? Math.round(avgPlays) : "—"}人。
+          グループ
         </>
       }
       loading={loading}
@@ -26,31 +27,38 @@ export default function Analytics4() {
       updatedAt={updatedAt}
       onRefresh={refresh}
     >
-      {overview && (
-        <div className="flex w-full flex-col items-center gap-16">
-          <div className="flex items-center gap-20">
-            <StatNumber
-              value={overview.totalPosts.toLocaleString()}
-              label="POSTED"
-              sizePx={150}
-            />
-            <span className="font-display text-[64px] font-bold text-foreground/20">→</span>
-            <StatNumber
-              value={overview.totalPlays.toLocaleString()}
-              label="PLAYED"
-              accent
-              sizePx={150}
-            />
-          </div>
-
-          <p className="max-w-[1250px] text-center text-[28px] font-medium leading-relaxed text-foreground/55">
-            世に広めるとは、この&ldquo;見る側&rdquo;の数字を伸ばすこと。その第一歩が計測。
-            <br />
-            次に自分のアプリを作るときは、
-            <span className="font-bold text-accent">1行目から仕込もう。</span>
-          </p>
-        </div>
-      )}
+      {stats &&
+        (stats.maxSize === 0 ? (
+          <p className="text-[28px] text-foreground/35">まだグループの記録がありません</p>
+        ) : (
+          <BigStat
+            label="一番大きいグループの人数"
+            value={String(stats.maxSize)}
+            unit="人"
+            sub={teamName && `「${teamName}」`}
+            caption={
+              teamName ? (
+                <>
+                  今日いちばん人が集まったのはこのチームでした。
+                  <br />
+                  アプリは一人で使うものじゃない、と
+                  <span className="font-bold text-accent">数字が言っています。</span>
+                </>
+              ) : (
+                <>
+                  いちばん人が集まったグループの人数です。
+                  <br />
+                  アプリは一人で使うものじゃない、と
+                  <span className="font-bold text-accent">数字が言っています。</span>
+                </>
+              )
+            }
+            chips={[
+              { label: "作られたグループ", value: `${stats.totalGroups.toLocaleString()}組` },
+              { label: "1組あたりの人数", value: `${stats.averageSize.toFixed(1)}人` },
+            ]}
+          />
+        ))}
     </AnalyticsFrame>
   );
 }

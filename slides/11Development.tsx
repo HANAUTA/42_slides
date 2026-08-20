@@ -102,7 +102,7 @@ export default function Development() {
 
         {/* STEP1 必須課題 */}
         <div className="flex flex-col gap-5">
-          <StepHeading step={1} title="必須課題" note="まずは全員ここまで" />
+          <StepHeading step={1} title="共通課題" note="まずは全員ここまで" />
           {TASKS.map((task, i) => (
             <div
               key={task.title}

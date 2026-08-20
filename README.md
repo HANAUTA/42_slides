@@ -27,6 +27,23 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 
 未設定でも起動でき、その場合はデモデータになります。
 
+## チーム名を表示する（Supabase 側の準備）
+
+「一番大きかったグループ」のスライドにチーム名を出すには、Supabase 側で1回だけ SQL を流す必要があります。**流さなくてもスライドは動き、その場合は人数だけが表示されます。**
+
+`groups` テーブルは RLS が `authenticated` 限定なので、スライドが持つ anon キーでは1行も返りません。かといって `groups` をそのまま公開すると `invite_code` まで見えて誰でも任意のグループに参加できてしまうため、**`id` と `name` だけを出すビュー**を作ります。
+
+Supabase ダッシュボードの SQL Editor で実行してください。
+
+```sql
+create or replace view public.group_names as
+  select id, name from public.groups;
+
+grant select on public.group_names to anon, authenticated;
+```
+
+これだけで、スライドは次回の読み込みからチーム名を表示します（グループ名を後から変更しても自動で追従します）。
+
 ## 構成
 
 | パス | 中身 |

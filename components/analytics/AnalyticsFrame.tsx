@@ -25,7 +25,7 @@ function RefreshIcon() {
   );
 }
 
-/** 分析4枚共通の器。通常スライドと同じ余白・見出しに更新表示を添える。 */
+/** データ取得を伴う分析スライド共通の器。通常スライドと同じ余白・見出しに更新表示を添える。 */
 export default function AnalyticsFrame({
   kicker,
   title,

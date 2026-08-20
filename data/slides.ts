@@ -16,7 +16,8 @@ import Analytics1 from "@/slides/13Analytics1";
 import Analytics2 from "@/slides/14Analytics2";
 import Analytics3 from "@/slides/15Analytics3";
 import Analytics4 from "@/slides/16Analytics4";
-import Closing from "@/slides/17Closing";
+import Analytics5 from "@/slides/17Analytics5";
+import Closing from "@/slides/18Closing";
 
 export const slides: SlideConfig[] = [
   { component: IceBreak, mascot: 4 },
@@ -36,5 +37,6 @@ export const slides: SlideConfig[] = [
   { phase: 4, component: Analytics2 },
   { phase: 4, component: Analytics3 },
   { phase: 4, component: Analytics4 },
+  { phase: 4, component: Analytics5 },
   { component: Closing, hideMascot: true },
 ];

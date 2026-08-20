@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { slides } from "@/data/slides";
+import { prefetchAnalyticsEvents } from "@/lib/useAnalyticsEvents";
 import Stage from "@/components/Stage";
 import Slide from "@/components/Slide";
 import SlideChrome from "@/components/SlideChrome";
@@ -11,6 +12,11 @@ import KeyboardNavigation from "@/components/KeyboardNavigation";
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // 分析スライドまで来てから取りに行くとスピナーが出るので、開いた時点で先読みする
+  useEffect(() => {
+    prefetchAnalyticsEvents();
+  }, []);
 
   const goNext = useCallback(() => {
     setCurrentIndex((prev) => Math.min(prev + 1, slides.length - 1));

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import BrandDecoration from "@/components/BrandDecoration";
-import Timer from "@/components/Timer";
 import { asset } from "@/lib/asset";
 
 export default function IceBreak() {
@@ -23,25 +22,16 @@ export default function IceBreak() {
         </span>
       </header>
 
-      <div className="relative mt-20 flex flex-1 items-center">
-        <div className="grid w-full grid-cols-[1fr_1.2fr] items-center gap-20">
-          <div className="rise-in flex justify-center">
-            <Timer seconds={5 * 60} size="md" simple />
-          </div>
-
-          <div
-            className="rise-in rounded-[24px] border border-foreground/[0.07] bg-foreground/[0.02] px-10 py-9"
-            style={{ animationDelay: "120ms" }}
-          >
-            <p className="font-display text-[24px] font-bold tracking-[0.1em] text-accent">
-              💬 今日のお題
-            </p>
-            <p className="mt-6 text-[27px] font-medium leading-relaxed text-foreground/80">
-              今日は、Flutter × Supabase × GitHub を使ったチーム開発がメインテーマです。
-              <br />
-              まずは同じテーブルの人と、Flutterやアプリ開発を触ったことがあるか、経験について気軽に話してみましょう。
-            </p>
-          </div>
+      <div className="relative mt-20 flex flex-1 items-center justify-center">
+        <div className="rise-in w-full max-w-[1200px] rounded-[24px] border border-foreground/[0.07] bg-foreground/[0.02] px-14 py-12">
+          <p className="font-display text-[24px] font-bold tracking-[0.1em] text-accent">
+            💬 今日のお題
+          </p>
+          <p className="mt-6 text-[27px] font-medium leading-relaxed text-foreground/80">
+            今日は、Flutter × Supabase × GitHub を使ったチーム開発がメインテーマです。
+            <br />
+            まずは同じテーブルの人と、Flutterやアプリ開発を触ったことがあるか、経験について気軽に話してみましょう。
+          </p>
         </div>
       </div>
     </div>

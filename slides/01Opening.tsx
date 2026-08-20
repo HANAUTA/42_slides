@@ -1,8 +1,7 @@
 import Image from "next/image";
 import BrandDecoration from "@/components/BrandDecoration";
 import { asset } from "@/lib/asset";
-
-const EVENT_DATE = "2026.08.21";
+import { EVENT_DATE_LABEL } from "@/data/event";
 
 export default function Opening() {
   return (
@@ -51,7 +50,7 @@ export default function Opening() {
           className="rise-in mt-12 rounded-full border border-foreground/10 px-9 py-3 font-mono text-[24px] tracking-[0.25em] text-foreground/45"
           style={{ animationDelay: "520ms" }}
         >
-          {EVENT_DATE}
+          {EVENT_DATE_LABEL}
         </p>
       </div>
     </div>

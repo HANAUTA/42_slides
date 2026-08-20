@@ -9,10 +9,10 @@ interface SeriesConfig {
 
 // 色は増やさずアクセント1色の濃淡だけで系列を区別する
 const SERIES: SeriesConfig[] = [
-  { key: "sign_up", label: "sign up", opacity: 1, fill: true },
-  { key: "app_opened", label: "app opened", opacity: 0.55 },
+  { key: "app_opened", label: "app opened", opacity: 1, fill: true },
+  { key: "video_played", label: "played", opacity: 0.55 },
   { key: "video_posted", label: "posted", opacity: 0.35 },
-  { key: "video_played", label: "played", opacity: 0.2 },
+  { key: "group_joined", label: "group joined", opacity: 0.2 },
 ];
 
 const WIDTH = 1600;
@@ -73,7 +73,7 @@ export default function Timeline({ points }: TimelineProps) {
             fill="none"
             stroke="#4AADE4"
             strokeOpacity={s.opacity}
-            strokeWidth={s.key === "sign_up" ? 4 : 2.5}
+            strokeWidth={s.key === "app_opened" ? 4 : 2.5}
             strokeLinejoin="round"
             strokeLinecap="round"
           />

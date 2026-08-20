@@ -38,7 +38,8 @@ export const slides: SlideConfig[] = [
   { phase: 4, component: Analytics2 },
   { phase: 4, component: Analytics3 },
   { phase: 4, component: Analytics4 },
-  { phase: 4, component: Analytics5 },
-  { phase: 4, component: Analytics6 },
+  // スクショを最大化したいので、右下のマスコットは出さない
+  { phase: 4, component: Analytics5, hideMascot: true },
+  { phase: 4, component: Analytics6, hideMascot: true },
   { component: Closing, hideMascot: true },
 ];

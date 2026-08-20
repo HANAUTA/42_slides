@@ -11,21 +11,12 @@ export default function Analytics5() {
         </p>
       }
     >
-      <div className="flex w-full flex-col items-center gap-10">
+      <div className="flex w-full justify-center">
         <ScreenshotFrame
           src="/firebase-realtime.png"
           alt="Firebase Analytics のリアルタイムダッシュボード"
           placeholderLabel="Firebase Analytics のスクショを置いてください"
         />
-
-        <p
-          className="rise-in max-w-[1250px] text-center text-[28px] font-medium leading-relaxed text-foreground/55"
-          style={{ animationDelay: "200ms" }}
-        >
-          これは別のアプリの例ですが、Firebase Analytics を仕込んでおくと
-          <span className="font-bold text-accent">今まさに何人が動いているか</span>
-          までリアルタイムで見えます。
-        </p>
       </div>
     </SlideLayout>
   );

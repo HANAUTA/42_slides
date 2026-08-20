@@ -20,7 +20,7 @@ export default function SetupEnv() {
         <div className="rise-in flex flex-col justify-center">
           <CodeBlock
             title="terminal"
-            lines={[{ cmd: "cp .env.example .env", note: "設定ファイルを作る" }]}
+            lines={[{ cmd: "cp .env.example .env", note: "設定ファイルを作ります" }]}
           />
           <p className="mt-7 text-[24px] leading-relaxed text-foreground/60">
             運営から配られる{" "}
@@ -28,7 +28,7 @@ export default function SetupEnv() {
               Supabase の URL と Key
             </span>{" "}
             を、VS Code で <span className="font-mono text-accent">.env</span>{" "}
-            に貼り付け
+            に貼り付けてください
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export default function SetupEnv() {
         style={{ animationDelay: "260ms" }}
       >
         <p className="text-[23px] font-bold text-foreground/70">
-          ⚠️ ブラウザのアドレスバーの URL ではありません！配られた値をそのまま
+          ⚠️ ブラウザのアドレスバーの URL ではありません。配られた値をそのまま使ってください
         </p>
         <p className="text-[23px] text-foreground/45">
           🔒 .env は GitHub に上がりません（設定済み）

@@ -39,7 +39,7 @@ export default function Rules() {
         <Callout>
           3時間はかなり限られた時間。
           <span className="font-bold text-accent">
-            すべての機能を作ろうとしたり、完成させることを目標にする必要はありません
+            すべての機能を作ろうとしたり、完成させることを目標にする必要はありません。
           </span>
         </Callout>
       </div>

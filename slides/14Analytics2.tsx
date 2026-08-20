@@ -31,7 +31,6 @@ export default function Analytics2() {
           unit="回"
           caption={
             <>
-              「自分だけのアプリ」で終わらなかった証拠。
               <br />
               この回数だけ、
               <span className="font-bold text-accent">誰かの画面で動画が動いています。</span>
